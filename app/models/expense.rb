@@ -3,4 +3,5 @@ class Expense < ActiveRecord::Base
   scope :category, -> (category) { where(category_id: category) }
 
   belongs_to :category
+  belongs_to :user
 end

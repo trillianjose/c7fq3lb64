@@ -24,10 +24,20 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Gastos <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item">
+            <% if user_signed_in? %>
+              <%= link_to 'Sign out', :destroy_user_session, method: :delete, class: "nav-link" %>
+            <% else %>
+              <%= link_to 'Sign in', :new_user_session, class: "nav-link"  %>
+            <% end %>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
